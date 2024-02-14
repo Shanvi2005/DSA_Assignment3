@@ -1,21 +1,20 @@
 class Solution {
     public boolean check(int[] nums) {
-        int i = 0, flag = 0, n = nums.length;
-        boolean status = true;
-        while(i<n-1){
-            if(flag == 0){
-                if(nums[i] > nums[i+1]){
-                    flag = 1;
-                }
-            }else{
-                if(nums[0] < nums[i] || nums[i] > nums[i+1])                 {
-                    status = false;
-                    break;
-                }
+        int c=0;
+
+        for (int i=0;i<=nums.length-2;i++)
+        {
+            if (nums[i]>nums[i+1])
+            {
+              c++;
             }
-            i++;
         }
-        if(flag == 1 && nums[0] < nums[i]) status = false;
-        return status;
+        if(nums[nums.length-1]>nums[0])
+        { c++;}
+        if (c>1)
+        {
+          return false;  
+        }
+        else {return true;}
     }
 }
